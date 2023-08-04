@@ -10,7 +10,7 @@ const s3Client = new S3Client({
 });
 
 const listObjectsParams = {
-    Bucket: 'my-cool-local-bucket'
+    Bucket: 'exercise2-4-bucket'
 }
 
 listObjectsCmd = new ListObjectsV2Command(listObjectsParams);
@@ -20,7 +20,7 @@ s3Client.send(listObjectsCmd)
 //endpoint in Express to list objects from s3 bucket
 app.get('/images', (req, res) => {
     listObjectsParams = {
-        Bucket: 'my-cool-local-bucket'
+        Bucket: 'exercise2-4-bucket'
     }
     s3Client.send(new ListObjectsV2Command(listObjectsParams))
     .then((listObjectsResponse) => {
@@ -37,8 +37,8 @@ app.post('/images', (req, res) => {
 })
 
 const params = {
-    Bucket: 'my-cool-local-bucket',
-    Key: 'sample_upload.jpg'
+    Bucket: 'exercise2-4-bucket',
+    Key: 'cinema.jpg'
 }
 
 const run = async () => {
