@@ -6,9 +6,7 @@ const fileupload = require('express-fileupload');
 const app = express();
 
 const s3Client = new S3Client({
-    region: 'us-east-2',
-    endpoint: 'http://localhost:4566',
-    forcePathStyle: true
+    region: 'us-east-2'
 });
 
 const listObjectsParams = {
