@@ -10,7 +10,7 @@ const s3Client = new S3Client({
 });
 
 const listObjectsParams = {
-    Bucket: 'exercise2-4-bucket'
+    Bucket: 'myflix-client-aws-images'
 }
 
 listObjectsCmd = new ListObjectsV2Command(listObjectsParams);
@@ -20,7 +20,7 @@ s3Client.send(listObjectsCmd)
 //endpoint in Express to list objects from s3 bucket
 app.get('/images', (req, res) => {
     listObjectsParams = {
-        Bucket: 'exercise2-4-bucket'
+        Bucket: 'myflix-client-aws-images'
     }
     s3Client.send(new ListObjectsV2Command(listObjectsParams))
     .then((listObjectsResponse) => {
@@ -37,7 +37,7 @@ app.post('/images', (req, res) => {
 })
 
 const params = {
-    Bucket: 'exercise2-4-bucket',
+    Bucket: 'myflix-client-aws-images',
     Key: 'cinema.jpg'
 }
 
